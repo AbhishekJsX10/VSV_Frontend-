@@ -1,0 +1,50 @@
+.text-area {
+    letter-spacing: -0.05em;
+    position: relative;
+    z-index: 4;
+    pointer-events: none;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.spotlight {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: none;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.char {
+    display: inline-block;
+    transition: all 0.3s ease;
+    color: #000000;
+    margin-right: 0;
+}
+
+.char:has(+ .char[data-char=" "]),
+.char[data-char=" "] {
+    margin-right: 1.5rem;
+}
+
+.two {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.text-area {
+    letter-spacing: -0.05em;
+    position: relative;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+    transform-origin: center center;
+}

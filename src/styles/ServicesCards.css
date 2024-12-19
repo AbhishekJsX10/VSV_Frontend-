@@ -1,0 +1,259 @@
+.vsv-services-section {
+  background-color: rgb(0, 0, 0);
+  min-height: 57vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12rem 1rem;
+  position: relative;
+}
+
+/* Add a subtle separation effect */
+.vsv-services-section::before,
+.vsv-services-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.vsv-services-section::before {
+  top: 4rem;
+}
+
+.vsv-services-section::after {
+  bottom: 4rem;
+}
+
+.vsv-services-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.vsv-service-card {
+  position: relative;
+  width: 350px;
+  height: 450px;
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.vsv-service-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 0 40%, #FFFFFF 40% 60%, transparent 60% 100%);
+  animation: rotate 3s linear infinite;
+  z-index: 1;
+}
+
+.vsv-service-card:nth-child(1)::before {
+  background: linear-gradient(
+    325deg, 
+    #FFFFFF 0%, 
+    #0000 100%
+  );
+}
+
+.vsv-service-card:nth-child(2)::before {
+  background: linear-gradient(
+    100deg, 
+    #FFFFFF 0%, 
+    #000000 100%
+  );
+}
+
+.vsv-service-card:nth-child(3)::before {
+  background: linear-gradient(
+    25deg, 
+    #FFFFFF 0%, 
+    #000000 100%
+  );
+}
+
+.vsv-service-card::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.vsv-service-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  z-index: 3;
+  text-align: center;
+}
+
+.vsv-service-title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.vsv-service-description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.vsv-service-icon {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.vsv-service-card:hover {
+  transform: scale(1.03);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 515px) {
+  .vsv-services-section {
+    padding: 1rem;
+  }
+
+  .vsv-services-grid {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .vsv-services-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vsv-service-card {
+    width: 350px;
+    height: 450px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .vsv-services-section {
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vsv-services-grid {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    grid-template-rows: auto auto;
+    justify-content: center;
+    gap: 1.5rem;
+    align-content: center;
+  }
+
+  .vsv-service-card:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 0;
+  }
+
+  .vsv-service-card:nth-child(1),
+  .vsv-service-card:nth-child(2) {
+    margin-bottom: 0;
+  }
+
+  .vsv-service-card:nth-child(1) {
+    margin-right: 1.5rem;
+  }
+
+  .vsv-service-card {
+    width: 350px;
+    height: 450px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .vsv-service-card {
+    width: 300px;
+    height: 400px;
+  }
+
+  .vsv-service-icon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .vsv-service-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .vsv-service-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vsv-service-card {
+    width: 280px;
+    height: 380px;
+  }
+
+  .vsv-service-icon {
+    width: 130px;
+    height: 130px;
+  }
+
+  .vsv-service-title {
+    font-size: 1.1rem;
+  }
+
+  .vsv-service-description {
+    font-size: 0.75rem;
+  }
+}

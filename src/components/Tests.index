@@ -1,0 +1,141 @@
+<div class="relative min-h-[150vh] flex flex-col justify-center items-center overflow-hidden bg-black" id="parallaxSection">
+    <!-- Gradient blobs with scroll animation -->
+    <div class="absolute top-[64%] left-[60%] -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[40rem] flex items-center justify-center" id="gradientBlobs">
+        <div class="absolute w-[19rem] h-[19rem] bg-[#D2AEF9] rounded-full blur-[170px] opacity-50 translate-x-[-18rem] translate-y-[-8rem]"></div>
+        <div class="absolute w-[19rem] h-[19rem] bg-[#A2C7FF] rounded-full blur-[170px] opacity-50 translate-x-[3rem] translate-y-[-8rem]"></div>
+    </div>
+    
+    <!-- Content container with scroll animation -->
+    <div class="absolute z-1 text-center flex flex-col justify-center items-center " id="textContent">
+        <h3 class="text-[#919399] text-[3rem] font-poppins">Synchronized With</h3>
+        <h2 class="text-[11rem] mt-[-1.5rem] leading-[11rem] tracking-tighter font-poppins font-[700] bg-gradient-to-b from-[#A2C7FF] via-[#B0BDFF] to-[#D2AEF9] inline-block text-transparent bg-clip-text">Apple Watch</h2>
+    </div>
+
+    <!-- Floating images with parallax effect -->
+    <div class="container relative mx-auto h-[600px]" id="floatingImages">
+        <img src="https://fitonist.com/wp-content/uploads/images/667fa6c733097c1516bb9798_watch-2441.webp" class="absolute w-[18rem] parallax-img" data-speed="0.9" style="top: 5%; left: 17%;" id="img1">
+        <img src="https://fitonist.com/wp-content/uploads/images/667fa6c733097c1516bb979d_watch-2439.webp" class="absolute w-[16rem] parallax-img" data-speed="0.9" style="top: 15%; right: 20%;" id="img2">
+        <img src="https://fitonist.com/wp-content/uploads/images/667fa6c733097c1516bb9794_watch-2440.webp" class="absolute w-[15rem] parallax-img" data-speed="0.9" style="bottom: 10%; left: 5%;" id="img3">
+        <img src="https://fitonist.com/wp-content/uploads/images/667fa6c733097c1516bb9799_watch-2436.webp" class="absolute w-[14rem] parallax-img" data-speed="0.9" style="bottom: 0%; right: 5%;" id="img4">
+    </div>
+</div>
+
+
+
+
+
+
+
+// Parallax effect for floating images
+function initParallaxImages() {
+    const parallaxSection = document.getElementById('parallaxSection');
+    const images = gsap.utils.toArray('.parallax-img');
+    
+    images.forEach(img => {
+        const speed = img.getAttribute('data-speed');
+        
+        gsap.to(img, {
+            yPercent: -100 * speed,
+            ease: "none",
+            scrollTrigger: {
+                trigger: parallaxSection,
+                start: "top bottom", // when the top of the section hits the bottom of the viewport
+                end: "bottom top", // when the bottom of the section hits the top of the viewport
+                scrub: true,
+                invalidateOnRefresh: true,
+            }
+        });
+    });
+
+    // Optional: Add fade in animation when section comes into view
+    gsap.from(images, {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: parallaxSection,
+            start: "top center",
+            toggleActions: "play none none reverse"
+        }
+    });
+}
+
+// Initialize parallax effect
+window.addEventListener('load', () => {
+    initParallaxImages();
+});
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+import React from 'react'
+
+const Project = () => {
+  return (
+    <div className="relative min-h-[100vh] md:min-h-[150vh] flex flex-col justify-center items-center overflow-hidden bg-black" id="parallaxSection">
+      {/* Gradient blobs with scroll animation */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full md:w-[60rem] h-[20rem] md:h-[40rem] flex items-center justify-center" id="gradientBlobs">
+        <div className="absolute w-[10rem] h-[10rem] md:w-[19rem] md:h-[19rem] bg-[#D2AEF9] rounded-full blur-[100px] md:blur-[170px] opacity-50 -translate-x-1/4 -translate-y-1/4 md:translate-x-[-18rem] md:translate-y-[-8rem]"></div>
+        <div className="absolute w-[10rem] h-[10rem] md:w-[19rem] md:h-[19rem] bg-[#A2C7FF] rounded-full blur-[100px] md:blur-[170px] opacity-50 translate-x-1/4 -translate-y-1/4 md:translate-x-[3rem] md:translate-y-[-8rem]"></div>
+      </div>
+      
+      {/* Content container with scroll animation */}
+      <div className="absolute z-0 text-center flex flex-col justify-center items-center px-4 md:px-0" id="textContent">
+        <h2 className="text-4xl sm:text-6xl md:text-[8rem] mt-[-0.5rem] md:mt-[-1.5rem] leading-tight md:leading-[10.3rem] tracking-normal font-poppins font-bold bg-gradient-to-b from-[#A2C7FF] via-[#B0BDFF] to-[#D2AEF9] inline-block text-transparent bg-clip-text">Our Projects</h2>
+      </div>
+
+      {/* Floating images with parallax effect */}
+      <div className="container relative mx-auto h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] w-full" id="floatingImages">
+        <img src="https://media.istockphoto.com/id/981339754/photo/silhouette-of-engineer-and-construction-team-working-at-site-over-blurred-background-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=ftbsxL76vkKvsB8WUO-FMrCHyjrRJKzLpZ_evRWJR4E=" 
+        className="absolute w-[40%] sm:w-[35%] md:w-[30%] lg:w-[18rem] parallax-img rounded-md z-10" data-speed="0.9" style={{ top: "5%", left: "5%", maxWidth: "18rem" }} id="img1" />
+        <img src="https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uc3RydWN0aW9uJTIwc2l0ZSUyMGltYWdlc3xlbnwwfHwwfHx8MA%3D%3D" 
+        className="absolute w-[35%] sm:w-[30%] md:w-[25%] lg:w-[16rem] parallax-img rounded-md z-10" data-speed="0.9" style={{ top: "10%", right: "5%", maxWidth: "16rem" }} id="img2" />
+        <img src="https://images.unsplash.com/photo-1495036019936-220b29b930ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" 
+        className="absolute w-[30%] sm:w-[25%] md:w-[20%] lg:w-[15rem] parallax-img rounded-md z-10" data-speed="0.9" style={{ bottom: "10%", left: "5%", maxWidth: "15rem" }} id="img3" />
+        <img src="https://images.unsplash.com/photo-1513467655676-561b7d489a88?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNvbnN0cnVjdGlvbiUyMHNpdGUlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D" 
+        className="absolute w-[25%] sm:w-[20%] md:w-[18%] lg:w-[14rem] parallax-img rounded-md z-10" data-speed="0.9" style={{ bottom: "5%", right: "5%", maxWidth: "14rem" }} id="img4" />
+      </div>
+    </div>
+  )
+}
+
+export default Project
+
+
+
+
+
+
+
+
+
+
+

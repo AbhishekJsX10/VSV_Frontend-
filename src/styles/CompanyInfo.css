@@ -1,0 +1,87 @@
+.company-info-section {
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  min-height: 100vh;
+}
+
+.company-card {
+  position: relative;
+  background-color: rgba(20, 20, 20, 0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 3px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.1)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card-content {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Add a glow effect on hover */
+.company-card:hover::before {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2)
+  );
+}
+
+/* Statistics Section */
+.stats-section {
+  padding: 2rem;
+  background-color: transparent;
+  border-radius: 12px;
+}
+
+.counter-item {
+  transition: transform 0.3s ease;
+}
+
+.counter-item:hover {
+  transform: translateY(-5px);
+}
+
+@media (min-width: 1024px) {
+  .card-content p {
+    font-size: 1.125rem; /* lg:text-lg */
+    line-height: 1.6;
+  }
+}

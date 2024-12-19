@@ -1,0 +1,153 @@
+<!-- define your goals section -->
+<div class="two flex justify-center items-center h-[40rem]  mt-[-80vh] bg-transparent z-0 relative">
+    <div class="text-area text-[5rem] font-bold text-[#E6E6E6]">
+        <span class="char">D</span><span class="char">e</span><span class="char">f</span><span class="char">i</span><span class="char">n</span><span class="char">e</span>
+        <!-- <span class="char">&nbsp;</span> -->
+        <span class="char">y</span><span class="char">o</span><span class="char">u</span><span class="char">r</span>
+        <!-- <span class="char">&nbsp;</span> -->
+        <span class="char">g</span><span class="char">o</span><span class="char">a</span><span class="char">l</span><span class="char">s</span>
+    </div>
+</div>
+
+
+
+
+  .text-area {
+    letter-spacing: normal; /* Changed from 0.1rem to normal */
+    position: relative;
+    z-index: 4;
+    pointer-events: none;
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.spotlight {
+    position: fixed;
+    width: 200px; /* Reduced width for tighter spotlight */
+    height: 200px; /* Reduced height for tighter spotlight */
+    background: none;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.char {
+    display: inline-block;
+    transition: all 0.3s ease;
+    color: #000000; /* Changed to pure black for complete invisibility */
+    margin-right: 0; /* Reset character spacing */
+}
+
+.char:has(+ .char[data-char=" "]),
+.char[data-char=" "] {
+    margin-right: 1rem; /* Reduced space between words */
+}
+
+.two {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    min-height: 400px;
+    /* background-color: #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-area {
+    letter-spacing: normal;
+    position: relative;
+    /* z-index: 4; */
+    pointer-events: none;
+    font-size: 10rem;
+    font-weight: bold;
+    transition: transform 0.1s ease-out; /* Added for smooth scaling and movement */
+    transform-origin: center center; /* Ensures scaling happens from the center */
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Lenis
+    const lenis = new Lenis({
+        duration: 1.2,
+        smoothWheel: true
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Create spotlight
+    const spotlight = document.createElement('div');
+    spotlight.classList.add('spotlight');
+    document.body.appendChild(spotlight);
+
+    const textArea = document.querySelector('.text-area');
+    const chars = document.querySelectorAll('.char');
+    const twoSection = document.querySelector('.two');
+
+    function getDistance(x1, y1, x2, y2) {
+        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+    }
+
+    function updateCharsVisibility(scrollProgress) {
+        const sectionRect = twoSection.getBoundingClientRect();
+        const spotlightX = sectionRect.left + (sectionRect.width * scrollProgress);
+        const spotlightY = sectionRect.top + sectionRect.height / 2;
+
+        spotlight.style.left = `${spotlightX}px`;
+        spotlight.style.top = `${spotlightY}px`;
+
+        // Scale and move text based on scroll progress
+        const scale = 1 + (scrollProgress * 0.2); // Scale from 1 to 1.2
+        const moveY = scrollProgress * 50; // Move 50px down during scroll
+        textArea.style.transform = `translateY(${moveY}px) scale(${scale})`;
+
+        chars.forEach(char => {
+            const rect = char.getBoundingClientRect();
+            const charX = rect.left + rect.width / 2;
+            const charY = rect.top + rect.height / 2;
+            
+            const distance = getDistance(spotlightX, spotlightY, charX, charY);
+            const maxDistance = 150;
+            
+            const progress = Math.max(0, 1 - (distance / maxDistance));
+            const colorValue = Math.round(progress * 255);
+            char.style.color = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+        });
+    }
+
+    // Add GSAP animation for the text area
+    gsap.to(textArea, {
+        scrollTrigger: {
+            trigger: '.two',
+            start: 'top center',
+            end: 'bottom center',
+            scrub: 1,
+            onUpdate: (self) => {
+                updateCharsVisibility(self.progress);
+            },
+        }
+    });
+
+    // Set initial state
+    chars.forEach(char => {
+        char.style.color = '#000000';
+    });
+    textArea.style.transform = 'translateY(0) scale(1)';
+
+    // Initial update
+    updateCharsVisibility(0);
+});
+
+
+
+
+
+
+
