@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex justify-between items-start mb-8">
           {/* Logo */}
           <div className="text-xl font-normal">
-            VSV
+            VS&V
           </div>
 
           {/* Navigation Links */}
@@ -39,7 +39,7 @@ const Footer = () => {
             <div>
               <h2 className="text-sm md:text-xl font-normal mb-2">About Us</h2>
               <p className="text-gray-300 max-w-[16rem] text-[0.75rem] sm:text-sm">
-                VSV Communication is one of the India's leading project development and construction groups. We are active in Delhi NCR region
+                VS&V Communication is one of the India's leading project development and construction groups. We are active in Delhi NCR region
               </p>
             </div>
             <div className="space-y-2 pt-24 flex min-w-[18rem] items-center sm:items-start sm:flex-col ">
@@ -62,7 +62,7 @@ const Footer = () => {
 
         {/* Large VSV Communications Watermark */}
         <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  opacity-10 text-center pointer-events-none  md:mt-[0rem]">
-          <div className="text-[2.5rem] sm:text-[5rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[9.5rem] font-medium">VSV</div>
+          <div className="text-[2.25rem] sm:text-[5rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[9.5rem] font-medium">VS&V</div>
           <div className="text-[2.5rem] sm:text-[5rem] md:text-[5.5rem] lg:text-[7rem] xl:text-[9.5rem] mt-[-2rem] sm:mt-[-3.15rem] md:mt-[-3.15rem] lg:mt-[-5.5rem] xl:mt-[-5.5rem] font-medium">Communications</div>
         </div>
 
@@ -93,7 +93,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="mt-8 pt-4 border-t text-center border-gray-800 text-sm text-gray-400">
           <p>
-            2024 VSV Communication | {'  '}
+            2024 VS&V Communication | {'  '}
             <Link to="/terms" className="hover:text-white">Terms & Conditions</Link> {' '}
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
           </p>

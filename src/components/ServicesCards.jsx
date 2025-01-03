@@ -22,8 +22,7 @@ const ServicesCards = () => {
             />
             <h2 className="vsv-service-title text-md">Mission And Vision</h2>
             <p className="vsv-service-description">
-              We develop comprehensive strategic plans that align with your project goals, 
-              ensuring efficient resource allocation and optimal project outcomes.
+            We aim to lead in telecom solutions, building services that inspire progress and redefine excellence in design. Through innovation, quality, and customer satisfaction, we aspire to leave a lasting legacy of connection and reliability.
             </p>
           </div>
         </div>
@@ -37,10 +36,9 @@ const ServicesCards = () => {
               effect="blur"
               placeholderSrc={frame2}
             />
-            <h2 className="vsv-service-title text-md">Why VSV?</h2>
+            <h2 className="vsv-service-title text-md">Why VS&V?</h2>
             <p className="vsv-service-description">
-              Our team leverages cutting-edge technologies and innovative approaches 
-              to deliver creative solutions that address complex construction challenges.
+            With ISO 9001:2015 and OH&SMS 45001:2018 certifications, VS&V ensures quality, safety, and excellence. Trusted by Huawei, Smarttel, and others, we deliver results, including high-altitude projects and global awards like Huawei Nepal Core CW Partner 2019.
             </p>
           </div>
         </div>
@@ -54,10 +52,9 @@ const ServicesCards = () => {
               effect="blur"
               placeholderSrc={frame3}
             />
-            <h2 className="vsv-service-title text-md">About VSV</h2>
+            <h2 className="vsv-service-title text-md">About VS&V</h2>
             <p className="vsv-service-description">
-              We maintain rigorous quality control standards throughout every phase 
-              of the project, ensuring superior craftsmanship and client satisfaction.
+            Established in 2004, VS&V excels in telecom, interiors, and construction across India and Nepal. With 19+ years of expertise and a focus on ethical practices, we are expanding as the VS&V Group to broaden horizons and deliver unmatched service.
             </p>
           </div>
         </div>
